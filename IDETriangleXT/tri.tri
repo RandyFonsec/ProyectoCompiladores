@@ -1,0 +1,1 @@
+loop for a from a > 12 to a > 13 while a > 14 do a := 1 end 
