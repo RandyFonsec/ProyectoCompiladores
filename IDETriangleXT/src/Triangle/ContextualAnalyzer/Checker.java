@@ -726,6 +726,9 @@ public final class Checker implements Visitor {
       } else if (binding instanceof VarFormalParameter) {
         ast.type = ((VarFormalParameter) binding).T;
         ast.variable = true;
+      } else if (binding instanceof ForBody) {
+        ast.type = StdEnvironment.integerType;
+        ast.variable = false;
       } else
         reporter.reportError ("\"%\" is not a const or var identifier",
                               ast.I.spelling, ast.I.position);
@@ -964,27 +967,72 @@ public final class Checker implements Visitor {
 
     @Override
     public Object visitLoopCommand(LoopCommand aThis, Object o) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        aThis.lb.visit(this, null);
+        return null;
     }
     
     @Override
     public Object visitWhileBody(WhileBody aThis, Object object) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        
+        TypeDenoter type = (TypeDenoter) aThis.E.visit(this, null);
+        if(!type.equals(StdEnvironment.booleanType)){
+            reporter.reportError("Boolean expression expected here", "", aThis.E.position);
+        }
+        aThis.C.visit(this, null);
+        return null;
     }
 
     @Override
     public Object visitUntilBody(UntilBody aThis, Object object) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        TypeDenoter type = (TypeDenoter) aThis.E.visit(this, null);
+        if(!type.equals(StdEnvironment.booleanType)){
+            reporter.reportError("Boolean expression expected here", "", aThis.E.position);
+        }
+        aThis.C.visit(this, null);
+        return null;
     }
 
     @Override
     public Object visitDoBody(DoBody aThis, Object o) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        aThis.C.visit(this, null);
+        TypeDenoter type = (TypeDenoter) aThis.E.visit(this, null);
+        if(!type.equals(StdEnvironment.booleanType)){
+            reporter.reportError("Boolean expression expected here", "", aThis.E.position);
+        }
+        
+        return null;
     }
 
     @Override
     public Object visitForBody(ForBody aThis, Object o) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        
+        TypeDenoter type1 = (TypeDenoter) aThis.E1.visit(this, null);
+        TypeDenoter type2 = (TypeDenoter) aThis.E2.visit(this, null);
+        
+        if(!type1.equals(StdEnvironment.integerType) || !type2.equals(StdEnvironment.integerType)){
+            reporter.reportError("Integer expression expected here", "", aThis.position);
+        }
+        
+        
+        //Scope del for
+        idTable.openScope();
+        
+        //Se introduce el identificador en la tabla
+        idTable.enter(aThis.I.spelling, aThis);
+        
+        aThis.C.visit(this, o);
+
+        
+        if(aThis.E3 != null){
+            TypeDenoter type3 = (TypeDenoter) aThis.E3.visit(this, null);
+            if(!type3.equals(StdEnvironment.booleanType)){
+                reporter.reportError("Boolean expression expected here", "", aThis.position);
+            }
+        }
+            
+        idTable.closeScope();
+        
+        return null;
     }
 
     @Override

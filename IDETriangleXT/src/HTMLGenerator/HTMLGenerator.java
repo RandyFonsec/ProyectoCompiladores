@@ -798,16 +798,16 @@ public class HTMLGenerator implements Visitor {
     @Override
     public Object visitLoopCommand(LoopCommand aThis, Object o) {
         String sentence = getReservada("loop ");
-        sentence += aThis.lb.visit(this, o);
+        sentence += aThis.lb.visit(this, (Integer)o);
         return sentence;
     }
 
     @Override
     public Object visitWhileBody(WhileBody aThis, Object object) {
         String sentence = getReservada("while ");
-        sentence += aThis.E.visit(this, object);
+        sentence += aThis.E.visit(this, (Integer)object);
         sentence += getReservada("do ");
-        sentence += aThis.C.visit(this, object);
+        sentence += aThis.C.visit(this, (Integer)object);
         sentence += getReservada("end ");
         return sentence;
     }

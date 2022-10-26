@@ -1,1 +1,5 @@
-loop for a from a > 12 to a > 13 while a > 14 do a := 1 end 
+let 
+	var x : Integer
+in
+	loop for x from 1 to 4 until 1 do nil end
+end

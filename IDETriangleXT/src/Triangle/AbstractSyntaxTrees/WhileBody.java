@@ -22,6 +22,6 @@ public class WhileBody extends LoopBody{
     
     @Override
     public Object visit(Visitor v, Object o) {
-        return v.visitWhileBody(this, "while"); //To change body of generated methods, choose Tools | Templates.
+        return v.visitWhileBody(this, o); //To change body of generated methods, choose Tools | Templates.
     }
 }

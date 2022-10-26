@@ -42,7 +42,7 @@ public class IDECompiler {
      */
     public boolean compileProgram(String sourceName) {
         System.out.println("********** " +
-                           "Triangle Compiler (IDE-Triangle 1.1)" +
+                           "Triangle Compiler (IDE-Triangle 1.2)" +
                            " **********");
         
         System.out.println("Syntactic Analysis ...");
@@ -54,9 +54,18 @@ public class IDECompiler {
         
         rootAST = parser.parseProgram();
         if (report.numErrors == 0) {
-//            System.out.println("Contextual Analysis ...");
-//            Checker checker = new Checker(report);
-//            checker.check(rootAST);
+            System.out.println("Syntactic Analysis successful... \n");
+           
+            System.out.println("Contextual Analysis ...");
+            try{
+                Checker checker = new Checker(report);
+                checker.check(rootAST);
+            }catch(Exception e){
+                System.out.println("Contextual Analysis failed ... ");
+                e.printStackTrace();
+                success = false;
+            }
+            
             if (report.numErrors == 0) {
 //                System.out.println("Code Generation ...");
 //                Encoder encoder = new Encoder(report);

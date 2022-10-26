@@ -11,7 +11,7 @@ import Triangle.SyntacticAnalyzer.SourcePosition;
  *
  * @author Randy
  */
-public abstract class LoopBody extends AST{
+public abstract class LoopBody extends Declaration{
 
     public LoopBody(SourcePosition thePosition) {
         super(thePosition);

@@ -1,49 +1,26 @@
 <?xml version="1.0" standalone="yes"?>
 <Program>
+<LetCommand>
+<VarDeclaration>
+<Identifier value="x"/>
+<IntTypeDenoter/>
+</VarDeclaration>
 <OrBody>
 <ForBody>
-<Identifier value="a"/>
-<BinaryExpression>
-<VnameExpression>
-<SimpleVname>
-<Identifier value="a"/>
-</SimpleVname>
-</VnameExpression>
-<Operator value=">"/>
-<IntegerExpression>
-<IntegerLiteral value="12"/>
-</IntegerExpression>
-</BinaryExpression>
-<BinaryExpression>
-<VnameExpression>
-<SimpleVname>
-<Identifier value="a"/>
-</SimpleVname>
-</VnameExpression>
-<Operator value=">"/>
-<IntegerExpression>
-<IntegerLiteral value="13"/>
-</IntegerExpression>
-</BinaryExpression>
-<BinaryExpression>
-<VnameExpression>
-<SimpleVname>
-<Identifier value="a"/>
-</SimpleVname>
-</VnameExpression>
-<Operator value=">"/>
-<IntegerExpression>
-<IntegerLiteral value="14"/>
-</IntegerExpression>
-</BinaryExpression>
-<AssignCommand>
-<SimpleVname>
-<Identifier value="a"/>
-</SimpleVname>
+<Identifier value="x"/>
 <IntegerExpression>
 <IntegerLiteral value="1"/>
 </IntegerExpression>
-</AssignCommand>
+<IntegerExpression>
+<IntegerLiteral value="4"/>
+</IntegerExpression>
+<VnameExpression>
+<SimpleVname>
+<Identifier value="true"/>
+</SimpleVname>
+</VnameExpression>
+<EmptyCommand/>
 </ForBody>
 </OrBody>
+</LetCommand>
 </Program>
