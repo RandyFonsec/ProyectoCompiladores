@@ -726,9 +726,13 @@ public final class Checker implements Visitor {
       } else if (binding instanceof VarFormalParameter) {
         ast.type = ((VarFormalParameter) binding).T;
         ast.variable = true;
+        //new
       } else if (binding instanceof ForBody) {
         ast.type = StdEnvironment.integerType;
         ast.variable = false;
+      } else if (binding instanceof VarInit) {
+        ast.type = ((VarInit) binding).E.type;
+        ast.variable = true;
       } else
         reporter.reportError ("\"%\" is not a const or var identifier",
                               ast.I.spelling, ast.I.position);
@@ -1052,7 +1056,12 @@ public final class Checker implements Visitor {
 
     @Override
     public Object visitVarInit(VarInit aThis, Object o) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        TypeDenoter eType = (TypeDenoter) aThis.E.visit(this, null);
+        idTable.enter(aThis.I.spelling, aThis);
+        if (aThis.duplicated)
+        reporter.reportError ("identifier \"%\" already declared",
+                            aThis.I.spelling, aThis.position);
+    return null;
     }
 
     @Override

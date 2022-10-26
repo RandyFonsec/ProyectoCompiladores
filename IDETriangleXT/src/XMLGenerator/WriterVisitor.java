@@ -677,8 +677,8 @@ public class WriterVisitor implements Visitor {
     @Override
     public Object visitVarInit(VarInit aThis, Object o) {
         writeLineHTML("<VarInit>");
-        aThis.ident.visit(this, null);
-        aThis.expr.visit(this, null);
+        aThis.I.visit(this, null);
+        aThis.E.visit(this, null);
         writeLineHTML("</VarInit>");
         return null;
     }

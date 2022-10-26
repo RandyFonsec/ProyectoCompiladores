@@ -12,12 +12,12 @@ import Triangle.SyntacticAnalyzer.SourcePosition;
  * @author Randy
  */
 public class VarInit extends Declaration{
-    public Identifier ident;
-    public Expression expr;
+    public Identifier I;
+    public Expression E;
     public VarInit(Identifier id, Expression ex, SourcePosition thePosition) {
         super(thePosition);
-        ident = id;
-        expr = ex;
+        I = id;
+        E = ex;
     }
 
     @Override

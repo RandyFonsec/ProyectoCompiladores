@@ -535,7 +535,7 @@ public class TreeVisitor implements Visitor {
 
     @Override
     public Object visitVarInit(VarInit aThis, Object o) {
-        return createBinary("Var init ", aThis.ident, aThis.expr);
+        return createBinary("Var init ", aThis.I, aThis.E);
     }
 
     @Override

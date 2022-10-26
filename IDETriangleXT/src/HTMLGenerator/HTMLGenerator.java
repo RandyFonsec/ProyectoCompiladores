@@ -880,9 +880,9 @@ public class HTMLGenerator implements Visitor {
     @Override
     public Object visitVarInit(VarInit aThis, Object o) {
         String sentence = getReservada("var ");
-        sentence += aThis.ident.visit(this, 0);
+        sentence += aThis.I.visit(this, 0);
         sentence += getReservada("init");
-        sentence += aThis.expr.visit(this, 0);
+        sentence += aThis.E.visit(this, 0);
         return sentence;
     }
 

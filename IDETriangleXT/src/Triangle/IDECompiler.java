@@ -42,7 +42,7 @@ public class IDECompiler {
      */
     public boolean compileProgram(String sourceName) {
         System.out.println("********** " +
-                           "Triangle Compiler (IDE-Triangle 1.2)" +
+                           "Triangle Compiler (IDE-Triangle 2.0)" +
                            " **********");
         
         System.out.println("Syntactic Analysis ...");
