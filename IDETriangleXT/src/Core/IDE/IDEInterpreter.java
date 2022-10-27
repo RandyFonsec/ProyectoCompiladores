@@ -9,7 +9,7 @@ import java.awt.event.ActionListener;
 /**
  * Just another small class to call the Triangle interpreter.
  *
- * @author Luis Leopoldo Pérez <luiperpe@ns.isi.ulatina.ac.cr>
+ * @author Luis Leopoldo Perez <luiperpe@ns.isi.ulatina.ac.cr>
  */
 public class IDEInterpreter {
     

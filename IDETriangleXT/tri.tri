@@ -1,26 +1,19 @@
-! Declaraciones mutuamente recursivas, con errores de tipo 
-
+! con token | (elseif)
 
 let
 
-  rec
-
-    func f (a : Integer): Integer ~
-      if a > 0 then
-        g(a - 1)
-      else
-        0
-		
-    |
-
-    ! g espera un booleano, no un entero
-    func g (b : Boolean): Integer ~ if b then f(1) else 0
-
-  end
+  var a : Integer
 
 in
+  getint (var a);
+  if a > 2 then 
+    put ('2')
+  | a = 1 then
+    put ('1')
+  | a = 0 then
+    put ('0')
+  else
+    put ('n')
+  end ! del if compuesto
 
-  putint(f(10))
-
-end
- 
+end ! del let

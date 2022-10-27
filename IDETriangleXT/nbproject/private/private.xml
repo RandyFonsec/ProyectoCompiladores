@@ -4,7 +4,12 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+<<<<<<< HEAD
             <file>file:/C:/Users/Randy/Documents/GitHub/ProyectoCompiladores/IDETriangleXT/src/Triangle/AbstractSyntaxTrees/Vname.java</file>
+=======
+            <file>file:/C:/Users/Isaac/Desktop/ProyectoCompiladores/IDETriangleXT/src/Triangle/ContextualAnalyzer/Checker.java</file>
+            <file>file:/C:/Users/Isaac/Desktop/ProyectoCompiladores/IDETriangleXT/src/Triangle/SyntacticAnalyzer/Parser.java</file>
+>>>>>>> 34f46899e9a2bbc45f0f4b41299d905da5c3780e
         </group>
     </open-files>
 </project-private>

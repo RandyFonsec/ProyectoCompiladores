@@ -1,68 +1,54 @@
 <?xml version="1.0" standalone="yes"?>
 <Program>
 <LetCommand>
-<RecDeclaration>
-<ProcFuncs>
-<FuncDeclaration>
-<Identifier value="f"/>
-<SingleFormalParameterSequence>
-<ConstFormalParameter>
+<VarDeclaration>
 <Identifier value="a"/>
 <IntTypeDenoter/>
-</ConstFormalParameter>
-</SingleFormalParameterSequence>
-<IntTypeDenoter/>
+</VarDeclaration>
+<SequentialCommand>
+<CallCommand>
+<Identifier value="getint"/>
+<SingleActualParameterSequence>
+<VarActualParameter>
+<SimpleVname>
+<Identifier value="a"/>
+</SimpleVname>
+</VarActualParameter>
+</SingleActualParameterSequence>
+</CallCommand>
+<IfCommand>
+<BinaryExpression>
+<VnameExpression>
+<SimpleVname>
+<Identifier value="a"/>
+</SimpleVname>
+</VnameExpression>
+<Operator value=">"/>
 <IntegerExpression>
 <IntegerLiteral value="2"/>
 </IntegerExpression>
-</FuncDeclaration>
-<ProcFuncs>
-<FuncDeclaration>
-<Identifier value="f"/>
-<EmptyFormalParameterSequence/>
-<SimpleTypeDenoter>
-<Identifier value="Integer"/>
-</SimpleTypeDenoter>
-<IntegerExpression>
-<IntegerLiteral value="1"/>
-</IntegerExpression>
-</FuncDeclaration>
-<FuncDeclaration>
-<Identifier value="g"/>
-<SingleFormalParameterSequence>
-<ConstFormalParameter>
-<Identifier value="b"/>
-<SimpleTypeDenoter>
-<Identifier value="Integer"/>
-</SimpleTypeDenoter>
-</ConstFormalParameter>
-</SingleFormalParameterSequence>
-<SimpleTypeDenoter>
-<Identifier value="Integer"/>
-</SimpleTypeDenoter>
-<IntegerExpression>
-<IntegerLiteral value="3"/>
-</IntegerExpression>
-</FuncDeclaration>
-</ProcFuncs>
-</ProcFuncs>
-</RecDeclaration>
+</BinaryExpression>
 <CallCommand>
-<Identifier value="putint"/>
+<Identifier value="put"/>
 <SingleActualParameterSequence>
 <ConstActualParameter>
-<CallExpression>
-<Identifier value="f"/>
-<SingleActualParameterSequence>
-<ConstActualParameter>
-<IntegerExpression>
-<IntegerLiteral value="10"/>
-</IntegerExpression>
-</ConstActualParameter>
-</SingleActualParameterSequence>
-</CallExpression>
+<CharacterExpression>
+<CharacterLiteral value="'2'"/>
+</CharacterExpression>
 </ConstActualParameter>
 </SingleActualParameterSequence>
 </CallCommand>
+<CallCommand>
+<Identifier value="put"/>
+<SingleActualParameterSequence>
+<ConstActualParameter>
+<CharacterExpression>
+<CharacterLiteral value="'n'"/>
+</CharacterExpression>
+</ConstActualParameter>
+</SingleActualParameterSequence>
+</CallCommand>
+</IfCommand>
+</SequentialCommand>
 </LetCommand>
 </Program>

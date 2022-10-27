@@ -139,6 +139,9 @@ public final class Checker implements Visitor {
         if (!eType.equals(StdEnvironment.booleanType)) {
             reporter.reportError("Boolean expression expected here", "", ast.E.position);
         }
+        if(ast.orbody !=  null){
+            ast.orbody.visit(this, null);
+        }
         ast.C1.visit(this, null);
         ast.C2.visit(this, null);
         return null;
@@ -777,7 +780,6 @@ public final class Checker implements Visitor {
         ast.C.visit(this, null);
         return null;
     }
-
     // Checks whether the source program, represented by its AST, satisfies the
     // language's scope rules and type rules.
     // Also decorates the AST as follows:
@@ -962,7 +964,15 @@ public final class Checker implements Visitor {
     //NUEVO
     @Override
     public Object visitOrBody(OrBody aThis, Object o) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        TypeDenoter type = (TypeDenoter) aThis.expression.visit(this, o);
+        if (!type.equals(StdEnvironment.booleanType)) {
+            reporter.reportError("Boolean expression expected here", "", aThis.expression.position);
+        }
+        if(aThis.orBody !=  null){
+            aThis.orBody.visit(this, null);
+        }
+        aThis.command.visit(this, o);
+        return null;
     }
 
     @Override
