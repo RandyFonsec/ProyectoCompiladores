@@ -122,7 +122,7 @@ public interface Visitor {
 
     public Object visitVarInit(VarInit aThis, Object o);
 
-    public Object visitProcFunc(ProcFunc aThis, Visitor v);
+    public Object visitProcFunc(ProcFunc aThis, Object o);
 
   
   

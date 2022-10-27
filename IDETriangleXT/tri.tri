@@ -1,15 +1,26 @@
+! Declaraciones mutuamente recursivas, con errores de tipo 
+
+
 let
 
-  var k init 10
+  rec
 
-in
+    func f (a : Integer): Integer ~
+      if a > 0 then
+        g(a - 1)
+      else
+        0
+		
+    |
 
-  loop for i from 1 to k until i > 3 do ! determinar que k se evalúa una sola vez
-
-    k := k + 1 ; 
-
-    putint (1) ! debe imprimir 2 unos
+    ! g espera un booleano, no un entero
+    func g (b : Boolean): Integer ~ if b then f(1) else 0
 
   end
 
+in
+
+  putint(f(10))
+
 end
+ 

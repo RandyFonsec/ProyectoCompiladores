@@ -1,63 +1,68 @@
 <?xml version="1.0" standalone="yes"?>
 <Program>
 <LetCommand>
-<VarInit>
-<Identifier value="k"/>
+<RecDeclaration>
+<ProcFuncs>
+<FuncDeclaration>
+<Identifier value="f"/>
+<SingleFormalParameterSequence>
+<ConstFormalParameter>
+<Identifier value="a"/>
+<IntTypeDenoter/>
+</ConstFormalParameter>
+</SingleFormalParameterSequence>
+<IntTypeDenoter/>
 <IntegerExpression>
-<IntegerLiteral value="10"/>
+<IntegerLiteral value="2"/>
 </IntegerExpression>
-</VarInit>
-<OrBody>
-<ForBody>
-<Identifier value="i"/>
+</FuncDeclaration>
+<ProcFuncs>
+<FuncDeclaration>
+<Identifier value="f"/>
+<EmptyFormalParameterSequence/>
+<SimpleTypeDenoter>
+<Identifier value="Integer"/>
+</SimpleTypeDenoter>
 <IntegerExpression>
 <IntegerLiteral value="1"/>
 </IntegerExpression>
-<VnameExpression>
-<SimpleVname>
-<Identifier value="k"/>
-</SimpleVname>
-</VnameExpression>
-<BinaryExpression>
-<VnameExpression>
-<SimpleVname>
-<Identifier value="i"/>
-</SimpleVname>
-</VnameExpression>
-<Operator value=">"/>
+</FuncDeclaration>
+<FuncDeclaration>
+<Identifier value="g"/>
+<SingleFormalParameterSequence>
+<ConstFormalParameter>
+<Identifier value="b"/>
+<SimpleTypeDenoter>
+<Identifier value="Integer"/>
+</SimpleTypeDenoter>
+</ConstFormalParameter>
+</SingleFormalParameterSequence>
+<SimpleTypeDenoter>
+<Identifier value="Integer"/>
+</SimpleTypeDenoter>
 <IntegerExpression>
 <IntegerLiteral value="3"/>
 </IntegerExpression>
-</BinaryExpression>
-<SequentialCommand>
-<AssignCommand>
-<SimpleVname>
-<Identifier value="k"/>
-</SimpleVname>
-<BinaryExpression>
-<VnameExpression>
-<SimpleVname>
-<Identifier value="k"/>
-</SimpleVname>
-</VnameExpression>
-<Operator value="+"/>
-<IntegerExpression>
-<IntegerLiteral value="1"/>
-</IntegerExpression>
-</BinaryExpression>
-</AssignCommand>
+</FuncDeclaration>
+</ProcFuncs>
+</ProcFuncs>
+</RecDeclaration>
 <CallCommand>
 <Identifier value="putint"/>
 <SingleActualParameterSequence>
 <ConstActualParameter>
+<CallExpression>
+<Identifier value="f"/>
+<SingleActualParameterSequence>
+<ConstActualParameter>
 <IntegerExpression>
-<IntegerLiteral value="1"/>
+<IntegerLiteral value="10"/>
 </IntegerExpression>
 </ConstActualParameter>
 </SingleActualParameterSequence>
+</CallExpression>
+</ConstActualParameter>
+</SingleActualParameterSequence>
 </CallCommand>
-</SequentialCommand>
-</ForBody>
-</OrBody>
 </LetCommand>
 </Program>

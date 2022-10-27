@@ -525,12 +525,22 @@ public class TreeVisitor implements Visitor {
 
     @Override
     public Object visitRecDeclaration(RecDeclaration aThis, Object o) {
-        return createBinary("Rec declaration ", aThis.proc, aThis.procBody);
+        if(aThis.procBody != null){
+            return createBinary("Rec declaration ", aThis.proc, aThis.procBody);
+        }else{
+            return createUnary("Rec declaration", aThis.proc);
+        }
+        
     }
 
     @Override
     public Object visitProcFuncs(ProcFuncs aThis, Object o) {
-        return createBinary("Proc Funcs ",aThis.declaration, aThis.procFunc1);
+        if(aThis.procFunc1 != null){
+            return createBinary("Proc Funcs ",aThis.declaration, aThis.procFunc1);
+        }else{
+            return createUnary("Proc Func", aThis.declaration);
+        }
+         
     }
 
     @Override
@@ -539,7 +549,7 @@ public class TreeVisitor implements Visitor {
     }
 
     @Override
-    public Object visitProcFunc(ProcFunc aThis, Visitor v) {
+    public Object visitProcFunc(ProcFunc aThis, Object o) {
         return createUnary("Proc Func", aThis.D);
     }
 

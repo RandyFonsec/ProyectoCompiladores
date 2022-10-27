@@ -887,8 +887,8 @@ public class HTMLGenerator implements Visitor {
     }
 
     @Override
-    public Object visitProcFunc(ProcFunc aThis, Visitor v) {
-
+    public Object visitProcFunc(ProcFunc aThis, Object o) {
+        
         return aThis.D.visit(this, 0);
     }
 
